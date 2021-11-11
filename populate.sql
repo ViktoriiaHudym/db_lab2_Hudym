@@ -4,7 +4,7 @@ VALUES
 ('SPECIALIZATION'),
 ('PROFESSIONAL CERTIFICATE');
 
-INSERT INTO DifficultyType(difficulty_type) 
+INSERT INTO DifficultyType(type_name) 
 VALUES
 ('Begginer'),
 ('Intermediate'),
@@ -39,33 +39,45 @@ VALUES
 ('deeplearning.ai'),
 ('Duke University');
 
-INSERT INTO Courses_Organizations(course_id, organization_id)
+INSERT INTO Courses_Organizations(course_id, organization_id, course_certificate, course_difficulty)
 VALUES 
-(8, 1),
-(7, 2),
-(2, 3),
-(1, 4),
-(11,10),
-(3, 5),
-(9, 6),
-(5, 7),
-(6, 8),
-(4, 9),
-(10,11);
+(8, 1, 3, 1),
+(7, 2, 1, 4),
+(2, 3, 2, 1),
+(1, 4, 3, 1),
+(11, 10, 2, 2),
+(3, 5, 1, 4),
+(9, 6, 2, 1),
+(5, 7, 2, 2),
+(6, 8, 2, 1),
+(4, 9, 2, 1),
+(10, 11, 2, 1);
 
-INSERT INTO Courses(course_rating, course_certificate, course_difficulty, course_students)
+INSERT INTO Ratings(course_number, rating_value)
 VALUES 
-(4.6,3,1,480000),
-(4.9,1,4,2500000),
-(4.8,2,1,1500000),
-(4.8,3,1,350000),
-(4.8,2,2,690000),
-(4.9,1,4,3200000),
-(4.7,2,1,510000),
-(4.7,2,2,310000),
-(4.9,2,1,240000),
-(4.5,2,1,830000),
-(4.6,2,1,380000);
+(1, 4.6),
+(2, 4.9),
+(3, 4.8),
+(4, 4.8),
+(5, 4.8),
+(6, 4.9),
+(7, 4.7),
+(8, 4.7),
+(9, 4.9),
+(10, 4.5),
+(11, 4.6);
 
-
+INSERT INTO Students(course_number, students_enrolled)
+VALUES 
+(1, 480000),
+(2, 2500000),
+(3, 1500000),
+(4, 350000),
+(5, 690000),
+(6, 3200000),
+(7, 510000),
+(8, 310000),
+(9, 240000),
+(10, 830000),
+(11, 380000);
 							

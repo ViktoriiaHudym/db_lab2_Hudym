@@ -10,20 +10,23 @@ host = 'localhost'
 port = '5432'
 
 query_1 = '''
-SELECT course_title, course_students FROM Courses 
-JOIN Courses_Organizations USING(id)
-JOIN Course ON Courses_Organizations.course_id = Course.id;
+SELECT course_title, students_enrolled FROM Students 
+JOIN Courses_Organizations USING(course_number)
+JOIN Course USING(course_id);
 '''
 
 query_2 = '''
-SELECT difficulty_type, COUNT(*) FROM DifficultyType 
-JOIN Courses
-ON DifficultyType.id = Courses.course_difficulty
-GROUP BY difficulty_type;
+SELECT type_name, COUNT(*) FROM DifficultyType 
+JOIN Courses_Organizations
+ON DifficultyType.type_id = Courses_Organizations.course_difficulty
+GROUP BY type_name;
 '''
 
 query_3 = '''
-SELECT course_rating, course_students FROM Courses ORDER BY course_rating ASC;
+SELECT rating_value, students_enrolled FROM Courses_Organizations 
+JOIN Ratings USING(course_number)
+JOIN Students USING(course_number)
+ORDER BY rating_value ASC;
 '''
 
 conn = psycopg2.connect(user=username, password=password, dbname=database, host=host, port=port)
